@@ -8,7 +8,7 @@ arch=('i686' 'x86_64')
 url='https://code.visualstudio.com/'
 license=('MIT')
 makedepends=('npm' 'gulp' 'python2')
-depends=('gtk2' 'gconf' 'alsa-lib' 'libnotify' 'libxtst' 'nodejs' 'nss')
+depends=('gtk2' 'gconf' 'alsa-lib' 'libnotify' 'libxtst' 'nodejs' 'nss' 'semver')
 conflicts=('vscode-oss')
 provides=('vscode-oss')
 
