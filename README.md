@@ -5,7 +5,7 @@ This repository is composed of PKGBUILDs I have written (or modified from existi
 
 While this repository is primarily designed to provide me with the packages I want, I am willing to turn it into a community repo with packages that others want too. Merely start a [new issue](https://github.com/fusion809/PKGBUILDs/issues/new) or file a pull request, if you want a new package added or have modification suggests for existing packages. I am even willing to add suitable packages to my OBSAEB. Despite this, I have written an [article](https://fusion809.github.io/package-development), in [*The Hornery*](https://fusion809.github.io) about how you can set up your own OBS Project and write PKGBUILDs.
 
-## Atom (`atom-editor`)
+## atom-editor
 The `atom-editor` package in this repository is designed to not fail, in its build, due to minor Internet connectivity issues which would stump the PKGBUILD in the AUR. 
 
 ### -beta
@@ -17,7 +17,7 @@ The `atom-editor-dev` package builds the 1.9.0-dev branch of Atom and places its
 ### -sync
 `atom-editor-sync` builds Atom (the latest stable version) with the `package-sync` package pre-installed to allow for the easy installation of packages listed in a `packages.cson` file. 
 
-## Linux-ck
+## linux-ck
 The `linux-ck` package is kept here, it was taken from the AUR with the BFQ enabled. 
 
 ## Vim
