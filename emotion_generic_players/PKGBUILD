@@ -1,0 +1,34 @@
+# $Id$
+# Maintainer: Ronald van Haren <ronald@archlinux.org>
+# Contributor: Enlightenment Developers <enlightenment-devel@enlightenment.org>
+
+pkgname=emotion_generic_players
+pkgver=1.17.0
+pkgrel=1
+pkgdesc="Enlightenment Foundation Libraries"
+arch=('i686' 'x86_64')
+url="http://www.enlightenment.org"
+license=('BSD')
+depends=('efl' 'vlc')
+options=('!emptydirs')
+source=(http://download.enlightenment.org/rel/libs/${pkgname}/${pkgname}-${pkgver}.tar.xz)
+sha1sums=('3a2a9150d720f73993864a08b0ab3205aa7914de')
+
+build() {
+  cd "${srcdir}/${pkgname}-${pkgver}"
+
+  export CFLAGS="$CFLAGS -fvisibility=hidden"
+
+  ./configure \
+    --prefix=/usr
+  make
+}
+
+package(){
+  cd "${srcdir}/${pkgname}-${pkgver}"
+  make DESTDIR=${pkgdir} install
+
+  # install license files
+  install -Dm644 "${srcdir}/${pkgname}-${pkgver}/COPYING" \
+  	"${pkgdir}/usr/share/licenses/${pkgname}/COPYING"
+}

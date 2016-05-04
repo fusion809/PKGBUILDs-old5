@@ -1,0 +1,37 @@
+# Maintainer: demian <mikar ατ gmx δοτ de>
+pkgname=blockify
+pkgver=3.6.1
+pkgrel=1
+pkgdesc="Mutes Spotify advertisements."
+arch=("any")
+url="https://github.com/mikar/${pkgname}"
+license=("MIT")
+conflicts=("blockify-git")
+depends=("pulseaudio" "alsa-utils" "pygtk"
+         "gst-python" "python-dbus" "python-setuptools" "python-docopt")
+source=("https://github.com/mikar/${pkgname}/archive/v${pkgver}.tar.gz"
+                  "blockify.desktop")
+sha256sums=('69a5f92e80c933a5afe4143e06cac579c861456ceab0b406d7ef788fe09e1f49'
+            'efa3ac9e0d9a9febdb621c741b62a832d398c7509c34d0adfb3e0e54a664495a')
+
+package() {
+    cd "$srcdir"/${pkgname}-${pkgver}
+
+    python setup.py install --root="${pkgdir}"
+    mkdir -p ${pkgdir}/usr/local/bin
+    mkdir -p ${pkgdir}/usr/share/{applications,licenses,pixmaps}
+    install -D -m644 LICENSE.txt "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
+    install -D -m644 blockify/data/icon-blue-512.png "${pkgdir}/usr/share/pixmaps/blockify.png"
+    install -D -m644 "$srcdir/blockify.desktop" "${pkgdir}/usr/share/applications/blockify.desktop"
+    echo "#!/bin/sh
+
+spotify=/usr/bin/spotify
+
+if [[ -x $spotify && -x /usr/bin/blockify ]];
+then
+blockify &
+block_pid=$!
+$spotify
+trap "kill -9 $block_pid" SIGINT SIGTERM EXIT
+fi" > ${pkgdir}/usr/local/bin/spotify
+}

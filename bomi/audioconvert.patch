@@ -1,0 +1,36 @@
+diff --git a/bomi-0.9.11/src/mpv/audio/filter/af_lavcac3enc.c b/bomi-0.9.11/src/mpv/audio/filter/af_lavcac3enc.c
+index a1651a0..36dec29 100644
+--- a/bomi-0.9.11/src/mpv/audio/filter/af_lavcac3enc.c
++++ b/bomi-0.9.11/src/mpv/audio/filter/af_lavcac3enc.c
+@@ -26,7 +26,6 @@
+ #include <assert.h>
+
+ #include <libavcodec/avcodec.h>
+-#include <libavutil/audioconvert.h>
+ #include <libavutil/intreadwrite.h>
+ #include <libavutil/common.h>
+ #include <libavutil/bswap.h>
+diff --git a/bomi-0.9.11/src/mpv/audio/filter/af_lavrresample.c b/bomi-0.9.11/src/mpv/audio/filter/af_lavrresample.c
+index f18b7e1..227e049 100644
+--- a/bomi-0.9.11/src/mpv/audio/filter/af_lavrresample.c
++++ b/bomi-0.9.11/src/mpv/audio/filter/af_lavrresample.c
+@@ -28,7 +28,6 @@
+ #include <assert.h>
+
+ #include <libavutil/opt.h>
+-#include <libavutil/audioconvert.h>
+ #include <libavutil/common.h>
+ #include <libavutil/samplefmt.h>
+ #include <libavutil/mathematics.h>
+diff --git a/bomi-0.9.11/src/mpv/audio/out/ao_lavc.c b/bomi-0.9.11/src/mpv/audio/out/ao_lavc.c
+index b322982..16ff8c1 100644
+--- a/bomi-0.9.11/src/mpv/audio/out/ao_lavc.c
++++ b/bomi-0.9.11/src/mpv/audio/out/ao_lavc.c
+@@ -25,7 +25,6 @@
+ #include <limits.h>
+
+ #include <libavutil/common.h>
+-#include <libavutil/audioconvert.h>
+
+ #include "config.h"
+ #include "options/options.h"

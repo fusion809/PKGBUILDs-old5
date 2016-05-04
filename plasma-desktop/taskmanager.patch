@@ -1,0 +1,26 @@
+From f60f8934eff1b91720c0ff809be4153f953f1083 Mon Sep 17 00:00:00 2001
+From: Brenton Horne <brentonhorne77@gmail.com>
+Date: Wed, 30 Mar 2016 18:40:44 +1000
+Subject: [PATCH] Update main.qml
+
+---
+ applets/taskmanager/package/contents/ui/main.qml | 6 ------
+ 1 file changed, 6 deletions(-)
+
+diff --git a/applets/taskmanager/package/contents/ui/main.qml b/applets/taskmanager/package/contents/ui/main.qml
+index 1094532..230d52a 100644
+--- a/applets/taskmanager/package/contents/ui/main.qml
++++ b/applets/taskmanager/package/contents/ui/main.qml
+@@ -185,12 +185,6 @@ Item {
+         value: !iconsOnly
+     }
+ 
+-    Binding {
+-        target: backend.groupManager
+-        property: "forceGrouping"
+-        value: iconsOnly
+-    }
+-
+     TaskManager.DragHelper {
+         id: dragHelper
+ 
